@@ -45,7 +45,7 @@ ram.runtime = "50M"
     # this is a generic question - ask strings are automatically handled by YunoHost's core
     # This won't be saved as setting and will instead be used to initialize the SSOwat permission
     type = "group"
-    default = "visitors"
+    default = "all_users"
 
 [resources]
     # See the packaging documentation for the full set

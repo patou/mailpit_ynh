@@ -1,5 +1,7 @@
 # Mailpit for YunoHost
 
+![Mailpit icon](./logo.svg)
+
 [![Install Mailpit with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=mailpit)
 
 *[Lire ce README en francais.](./README_fr.md)*
@@ -22,7 +24,7 @@ It provides an SMTP server to capture outgoing emails and a web UI to inspect me
 
 ## Screenshots
 
-![Screenshot of Mailpit](./doc/screenshots/example.jpg)
+![Screenshot of Mailpit](./doc/screenshots/mailpit.png)
 
 ## Important information
 
