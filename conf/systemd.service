@@ -1,15 +1,17 @@
 [Unit]
-Description=Small description of the service
+Description=Mailpit SMTP testing server
 After=network.target
 
 [Service]
 Type=simple
 User=__APP__
 Group=__APP__
-WorkingDirectory=__INSTALL_DIR__/
-ExecStart=__INSTALL_DIR__/script
-StandardOutput=append:/var/log/__APP__/__APP__.log
-StandardError=inherit
+WorkingDirectory=__INSTALL_DIR__
+ExecStart=__INSTALL_DIR__/mailpit --listen 127.0.0.1:__PORT__ --smtp [::]:__PORT_SMTP__ --database __DATA_DIR__/mailpit.db --webroot __PATH__/
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
 
 ### Depending on specificities of your service/app, you may need to tweak these
 ### .. but this should be a good baseline

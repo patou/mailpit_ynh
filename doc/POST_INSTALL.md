@@ -1,7 +1,5 @@
-This is a dummy disclaimer to display after the install
+Mailpit is now available at:
 
-The app url is <https://__DOMAIN____PATH__>
+- https://__DOMAIN____PATH__
 
-The app install dir is `__INSTALL_DIR__`
-
-The app id is `__ID__`
+To capture emails, configure your applications to use SMTP on your server at port __PORT_SMTP__.

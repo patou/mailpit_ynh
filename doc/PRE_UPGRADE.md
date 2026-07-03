@@ -1,1 +1,3 @@
-This is a dummy disclaimer to display prior to any upgrade
+Upgrades restart the Mailpit service.
+
+Short interruption of Mailpit UI and SMTP capture may occur during upgrade.
