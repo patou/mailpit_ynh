@@ -54,6 +54,7 @@ ram.runtime = "50M"
     [resources.sources.main]
     format = "tar.gz"
     extract = true
+    in_subdir = false
 
         [resources.sources.main.amd64]
         url = "https://github.com/axllent/mailpit/releases/download/v1.30.3/mailpit-linux-amd64.tar.gz"
