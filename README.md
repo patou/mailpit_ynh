@@ -20,7 +20,7 @@ It provides an SMTP server to capture outgoing emails and a web UI to inspect me
 - Persistent local database for captured messages
 - Reverse-proxied web access through YunoHost (domain/path)
 
-**Packaged version:** 1.30.3~ynh1
+**Packaged version:** 1.30.4~ynh1
 
 ## Screenshots
 

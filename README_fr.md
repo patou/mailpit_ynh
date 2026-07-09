@@ -20,7 +20,7 @@ Il fournit un serveur SMTP pour capturer les emails sortants et une interface we
 - Base locale persistante pour les messages captures
 - Acces web proxifie via YunoHost (domaine/chemin)
 
-**Version packagee :** 1.30.3~ynh1
+**Version packagee :** 1.30.4~ynh1
 
 ## Captures d'ecran
 
