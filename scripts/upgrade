@@ -15,14 +15,6 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-ynh_script_progression "Ensuring downward compatibility..."
-
-mkdir -p "$data_dir"
-chown -R "$app:$app" "$data_dir"
-
-#=================================================
 # DOWNLOAD AND INSTALL MAILPIT BINARY
 #=================================================
 install_mailpit_binary
