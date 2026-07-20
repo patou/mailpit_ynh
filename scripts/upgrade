@@ -4,7 +4,6 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -15,9 +14,13 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
-# DOWNLOAD AND INSTALL MAILPIT BINARY
+# DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-install_mailpit_binary
+ynh_script_progression "Upgrading source files..."
+
+ynh_setup_source --source_id="main" --dest_dir="$install_dir"
+
+chmod +x "$install_dir/mailpit"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
@@ -31,7 +34,8 @@ ynh_config_add_systemd
 if ynh_hide_warnings yunohost service status "$app" >/dev/null; then
 	yunohost service remove "$app"
 fi
-yunohost service add "$app" --description="Mailpit SMTP testing service"
+
+yunohost service add "$app" --description="Mailpit SMTP testing service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
