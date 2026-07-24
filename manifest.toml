@@ -7,19 +7,18 @@ name = "Mailpit"
 description.en = "Modern SMTP testing server with web UI to inspect captured emails"
 description.fr = "Serveur SMTP de test moderne avec interface web pour inspecter les emails"
 
-version = "1.30.4~ynh1"
+version = "1.30.5~ynh1"
 
 maintainers = ["patou"]
 
 [upstream]
-# NB: Only the "license" key is mandatory. Remove entries for which there's no relevant data
 license = "MIT"
 website = "https://mailpit.axllent.org"
 admindoc = "https://mailpit.axllent.org/docs/"
 code = "https://github.com/axllent/mailpit"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.40"
 helpers_version = "2.1"
 architectures = ["amd64", "i386", "armhf", "arm64"]
 multi_instance = false
@@ -28,28 +27,22 @@ ldap = false
 sso = false
 
 disk = "50M"
-ram.build = "50M"
+ram.build = "80M"
 ram.runtime = "50M"
 
 [install]
     [install.domain]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "domain"
 
     [install.path]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
     type = "path"
     default = "/mailpit"
 
     [install.init_main_permission]
-    # this is a generic question - ask strings are automatically handled by YunoHost's core
-    # This won't be saved as setting and will instead be used to initialize the SSOwat permission
     type = "group"
     default = "all_users"
 
 [resources]
-    # See the packaging documentation for the full set
-    # of explanation regarding the behavior and properties for each of those
 
     [resources.sources.main]
     format = "tar.gz"
@@ -57,20 +50,20 @@ ram.runtime = "50M"
     in_subdir = false
 
         [resources.sources.main.amd64]
-        url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-amd64.tar.gz"
-        sha256 = "e9c104154c22b83ac4c7d19f9d665a5c933585a3caafcd790805d732fa8d03fb"
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-amd64.tar.gz"
+        sha256 = "b1499b23e6207d2728a0f154fd27370d0f608dd8ae1a63b734d089dc7f7a8d6f"
 
         [resources.sources.main.i386]
-        url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-386.tar.gz"
-        sha256 = "0441ee80b5157e037030080a6d26a25874a82d7b4f266370a187cd97918d8049"
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-386.tar.gz"
+        sha256 = "fa9ad106b86c54aefd9802fd1483d90ec07f82badfabffdedfc551466f094c40"
 
         [resources.sources.main.armhf]
-        url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-arm.tar.gz"
-        sha256 = "c6916cc26b91bb73cf49820d133d66f901a4ef7459f84efd5c62e5d814b1aaf4"
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-arm.tar.gz"
+        sha256 = "d08f4e80c180a38c7787e6234f3d0fcd3a089d0061e2b0871fbe866d5d759db5"
 
         [resources.sources.main.arm64]
-        url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-arm64.tar.gz"
-        sha256 = "27f6556c4d922d5ee2afb8b85a799dc2445b894782e7ec0196a566598d107221"
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-arm64.tar.gz"
+        sha256 = "c4c0a587770af1d5fb192e7b580aebfc03115c93da2af308a4b2e227c7d06cd2"
 
         [resources.sources.main.autoupdate]
         strategy = "latest_github_release"
@@ -80,19 +73,12 @@ ram.runtime = "50M"
         asset.arm64 = "mailpit-linux-arm64.tar.gz"
 
     [resources.system_user]
-    # This will provision/deprovision a unix system user
 
     [resources.install_dir]
-    # This will create/remove the install dir as /var/www/$app
-    # and store the corresponding setting $install_dir
 
     [resources.data_dir]
-    # This will create/remove the data dir as /home/yunohost.app/$app
-    # and store the corresponding setting $data_dir
 
     [resources.permissions]
-    # This will configure SSOwat permission for $domain/$path/
-    # The initial allowed group of user is configured via the init_main_permission question (public=visitors, private=all_users)
     main.url = "/"
 
     [resources.ports]
