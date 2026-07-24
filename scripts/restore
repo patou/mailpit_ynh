@@ -4,8 +4,6 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
-# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
-source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -15,11 +13,6 @@ ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
 
-### $install_dir will automatically be initialized with some decent
-### permissions by default... however, you may need to recursively reapply
-### ownership to all files such as after the ynh_setup_source step
-chown -R "$app:$app" "$install_dir"
-
 #=================================================
 # RESTORE THE DATA DIRECTORY
 #=================================================
@@ -27,15 +20,10 @@ ynh_script_progression "Restoring the data directory..."
 
 ynh_restore "$data_dir"
 
-### (Same as for install dir)
-chown -R "$app:$app" "$data_dir"
-
 #=================================================
 # RESTORE SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Restoring system configurations related to $app..."
-
-### This should be a symetric version of what happens in the install script
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
@@ -45,7 +33,7 @@ systemctl enable "$app.service" --quiet
 if ynh_hide_warnings yunohost service status "$app" >/dev/null; then
 	yunohost service remove "$app"
 fi
-yunohost service add "$app" --description="Mailpit SMTP testing service"
+yunohost service add "$app" --description="Mailpit SMTP testing service" --log="/var/log/$app/$app.log"
 
 #=================================================
 # RELOAD NGINX AND THE APP SERVICE
