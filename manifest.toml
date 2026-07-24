@@ -7,7 +7,7 @@ name = "Mailpit"
 description.en = "Modern SMTP testing server with web UI to inspect captured emails"
 description.fr = "Serveur SMTP de test moderne avec interface web pour inspecter les emails"
 
-version = "1.30.4~ynh1"
+version = "1.30.5~ynh1"
 
 maintainers = ["patou"]
 
@@ -49,15 +49,21 @@ ram.runtime = "50M"
     extract = true
     in_subdir = false
 
-        [resources.sources.main]
-        amd64.url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-amd64.tar.gz"
-        amd64.sha256 = "e9c104154c22b83ac4c7d19f9d665a5c933585a3caafcd790805d732fa8d03fb"
-        i386.url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-386.tar.gz"
-        i386.sha256 = "0441ee80b5157e037030080a6d26a25874a82d7b4f266370a187cd97918d8049"
-        armhf.url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-arm.tar.gz"
-        armhf.sha256 = "c6916cc26b91bb73cf49820d133d66f901a4ef7459f84efd5c62e5d814b1aaf4"
-        arm64.url = "https://github.com/axllent/mailpit/releases/download/v1.30.4/mailpit-linux-arm64.tar.gz"
-        arm64.sha256 = "27f6556c4d922d5ee2afb8b85a799dc2445b894782e7ec0196a566598d107221"
+        [resources.sources.main.amd64]
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-amd64.tar.gz"
+        sha256 = "b1499b23e6207d2728a0f154fd27370d0f608dd8ae1a63b734d089dc7f7a8d6f"
+
+        [resources.sources.main.i386]
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-386.tar.gz"
+        sha256 = "fa9ad106b86c54aefd9802fd1483d90ec07f82badfabffdedfc551466f094c40"
+
+        [resources.sources.main.armhf]
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-arm.tar.gz"
+        sha256 = "d08f4e80c180a38c7787e6234f3d0fcd3a089d0061e2b0871fbe866d5d759db5"
+
+        [resources.sources.main.arm64]
+        url = "https://github.com/axllent/mailpit/releases/download/v1.30.5/mailpit-linux-arm64.tar.gz"
+        sha256 = "c4c0a587770af1d5fb192e7b580aebfc03115c93da2af308a4b2e227c7d06cd2"
 
         [resources.sources.main.autoupdate]
         strategy = "latest_github_release"
